@@ -1,6 +1,7 @@
 package com.coding;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,10 +29,22 @@ public class GitPanel extends JPanel implements ActionListener {
     public void setupEvents() {
         saveCapture.addActionListener((e) -> {
             JFileChooser chooser = new JFileChooser(camera.directory);
+            FileFilter filter = new FileFilter() {
+                @Override
+                public boolean accept(File file) {
+                    return file.getName().endsWith(".jpg");
+                }
+                @Override
+                public String getDescription() {
+                    return "JPEG Files Accept";
+                }
+            };
             chooser.setDialogTitle("save as");
+            chooser.addChoosableFileFilter(filter);
             if(chooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
                 File file = chooser.getSelectedFile();
-                camera.saveFrame(file);
+                if(file.getName().endsWith(".jpg"))
+                    camera.saveFrame(file);
             }
         });
     }
