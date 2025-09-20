@@ -27,7 +27,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class WebCam {
-    String path = "C:\\Users\\acer\\Desktop\\Images\\frame.jpg";
+    private String path = "C:\\Users\\acer\\Desktop\\Images\\frame.jpg";
+    private String dir =  "C:\\Users\\acer\\Desktop\\Images\\";
+    File directory = new File(dir);
     File file = new File(path);
     int codec = avcodec.AV_CODEC_ID_H264;
     Webcam camera = Webcam.getDefault();
@@ -54,9 +56,8 @@ public class WebCam {
     public void begin() {
         camera.open();
     }
-    public void saveFrame() {
+    public void saveFrame(File file) {
         try {
-            camera.open();
             ImageIO.write(camera.getImage(), "JPG", file);
         }
         catch(IOException cam) {
