@@ -7,24 +7,14 @@ import com.github.sarxos.webcam.Webcam;
 import org.bytedeco.ffmpeg.global.avcodec;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
 import org.bytedeco.javacv.Java2DFrameConverter;
-import org.jcodec.api.SequenceEncoder;
 import org.jcodec.api.awt.*;
-import org.jcodec.common.Codec;
-import org.jcodec.common.Format;
-import org.jcodec.common.io.NIOUtils;
-import org.jcodec.common.model.Picture;
-import org.jcodec.common.model.Rational;
-import org.jcodec.scale.AWTUtil;
-import org.jcodec.common.io.SeekableByteChannel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import org.jcodec.common.model.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class WebCam {
     private String path = "C:\\Users\\acer\\Desktop\\Images\\frame.jpg";
